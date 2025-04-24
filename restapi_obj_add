@@ -58,7 +58,7 @@ headers = {
 # Disable SSL warnings (optional)
 requests.packages.urllib3.disable_warnings()
 
-# Add each address object
+# # Add each address object to a list of dictionaries (called 'payload' here)
 for obj in address_objects:
     payload = {
         "entry": {
@@ -67,6 +67,7 @@ for obj in address_objects:
             "description": obj["description"]
         }
     }
+    #the following line will extract the name of the object to be used in the url
     objname = payload.get('entry', {}).get('@name')
     #Setting REST API URL
     url = f"{firewall_ip}/restapi/v10.2/Objects/Addresses?location=vsys&vsys=vsys1&name={objname}"
