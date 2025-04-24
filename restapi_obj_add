@@ -31,7 +31,7 @@ response = requests.delete(....etc...
 
 # Setting basic parameters for the url
 firewall_ip = 'https://192.168.55.180'
-api_key = 'LUFRPT1mcTNJb2MrdlVTZ0NpZXV3c0s0am5VMFRCM2s9ejRvZUZiU05qdldqWldNd0kwSWh5Tzd5WXlRRzA0OEdzUWQwam82ZzU0NnlZZ3hFYWJjRU15bTh5c0RzVTdXLw=='
+api_key = '<Palo API-KEY>'
 api_version = 'v10.2'
 
 
