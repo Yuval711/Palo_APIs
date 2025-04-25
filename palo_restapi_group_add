@@ -1,0 +1,37 @@
+#!/opt/homebrew/bin/python3
+import requests
+
+# Configuration
+firewall_ip = 'https://192.168.55.180'
+api_key = '<API_Current_Key'
+api_version = 'v10.2'
+
+# Address Group and Members to add
+# -- Address Group data
+address_group = [{"name": "test_restapi-group", "member": [ "H-10.20.30.10", "H-10.20.30.11", "H-10.20.30.12"],"description": "rest-api-group"}]
+
+# Set headers
+headers = {'X-PAN-KEY': api_key,'Content-Type': 'application/json'}
+
+# Disable SSL warnings (optional)
+requests.packages.urllib3.disable_warnings()
+
+# Add each address object
+for obj in address_group:
+    payload = {
+        "entry": {
+            "@name": obj["name"],
+            "static": {
+            "member": obj["member"]
+            },
+            "description": obj["description"]
+        }
+    }
+    objname = payload.get('entry', {}).get('@name')
+    url = f"{firewall_ip}/restapi/v10.2/Objects/AddressGroups?location=vsys&vsys=vsys1&name={objname}"
+    response = requests.post(url, headers=headers, json=payload, verify=False)
+
+    if response.status_code == 200:
+        print(f"Added {obj['name']} successfully.")
+    else:
+        print(f"Failed to add {obj['name']}: {response.text}")
