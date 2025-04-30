@@ -24,7 +24,7 @@ response = requests.delete(....etc...
 
 # Setting basic parameters for the url
 firewall_ip = 'https://192.168.55.180'
-api_key = 'LUFRPT1nSHNmVDVBVndMUDRWWmhHMURBZjU4S2FVQnc9ejRvZUZiU05qdldqWldNd0kwSWh5THc1NnRNdkhRVEcrK2JLS0ZQUDEyditiQzIzd0k4QW4wcXd3cjZDL0ljaQ=='
+api_key = '<api_key-genertated from the firewall>'
 api_version = 'v10.2'
 
 
